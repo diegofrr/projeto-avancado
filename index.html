@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .email-block {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .senha-block {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        .form-section form input {
+            height: 40px;
+            width: 100%;
+            padding-left: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .form-section form .senha-block label {
+            position: absolute;
+            transform: translate(0, -50%);
+            top: 50%;
+            left: 10px;
+            pointer-events: none;
+            color: #999;
+            transition: all .3s ease;
+        }
+
+        .form-section form .email-block label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translate(0, -50%);
+            pointer-events: none;
+            color: #999;
+            transition: all .3s ease;
+
+        }
+
+        .form-section form #email:focus {
+            border-color: mediumpurple;
+        }
+
+        .form-section form #pass:focus {
+            border-color: mediumpurple;
+        }
+
+        .form-section form #email:focus ~ label {
+            color: mediumpurple;
+        }
+
+        .form-section form #pass:focus ~ label {
+            color: mediumpurple;
+        }
+
+        .form-section form #email:focus ~ label,
+        .form-section form .email-block :not(input:placeholder-shown) ~ label {
+            top: 0;
+            font-size: .6em;
+            background-color: white;
+            padding: 0 4px;
+        }
+
+        .form-section form #pass:focus ~ label,
+        .form-section form .senha-block :not(input:placeholder-shown) ~ label {
+            top: 0;
+            font-size: .6em;
+            background-color: white;
+            padding: 0 4px;
+        }
+
+        .form-section form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .form-section {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .entrar-btn {
+            width: 100%;
+            height: 30px;
+            border: 1px solid mediumpurple;
+            background-color: mediumpurple;
+            border-radius: 100px;
+            color: white;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        .entrar-btn:hover {
+            background-color: white;
+            color: mediumpurple;
+        }
+
+        .logo-block {
+            color: mediumpurple;
+            font-weight: 800;
+        }
+
+        @media screen and (min-width: 400px){
+            body {
+                background-color: red;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+   <section class="form-section">
+
+    <div class="logo-block">
+        ListinhApp
+    </div>
+        <form action="" method="POST">
+
+            <div class="email-block">
+                <input type="email" placeholder=" " name="email" id="email">
+                <label for="email">Email</label>
+            </div>
+                
+            <div class="senha-block">
+                <input type="password" placeholder=" " name="pass" id="pass">
+                <label for="pass">Senha</label>
+            </div>
+
+            <button class="entrar-btn">Entrar</button>
+
+        </form>
+
+   </section>
+
+
+</body>
+</html>
