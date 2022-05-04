@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            width: 100%;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .container {
+            max-width: 90%;
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .estado-block {
+            width: 100%;
+        }
+        
+        .cidade-block {
+            width: 100%;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 1em;
+        }
+        
+        select {
+            width: 100%;
+            border: none;
+            height: 30px;
+            border-radius: 6px;
+        }
+        
+        select:focus {
+            outline: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dados IBGE</h1>
+        <div class="estado-block">
+            <h2>Escolha o Estado Desejado</h2>
+            <select name="estados" id="estados">
+    </select>
+        </div>
+        <div class="cidade-block">
+            <h2>Escolha a Cidade Desejada</h2>
+            <select class="hidden" name="cidades" id="cidades"></select>
+        </div>
+    </div>
+
+
+
+    <script>
+        (() => {
+            const ESTADOS_URL = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados';
+            let estadosSelect = document.querySelector('#estados');
+            let cidadesSelect = document.querySelector('#cidades');
+
+            fetch(ESTADOS_URL)
+                .then(response => response.json())
+                .then(dados => {
+                    dados.forEach(estado => {
+                        estadosSelect.innerHTML += (
+                            `<option value="${estado.sigla}">${estado.nome}</option>`
+                        )
+                    });
+                })
+                .catch(error => console.log(error))
+
+            estadosSelect.addEventListener('change', () => {
+                cidadesSelect.innerHTML = '';
+                let estadoUF = estadosSelect.value;
+                let CIDADES_URL = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoUF}/municipios`;
+                fetch(CIDADES_URL)
+                    .then(response => response.json())
+                    .then(dados => {
+                        dados.forEach(cidade => {
+                            cidadesSelect.innerHTML += (
+                                `<option value="${cidade.id}">${cidade.nome}</option>`
+                            )
+                        })
+                    })
+                    .catch(error => console.log(error))
+                    .finally(cidadesSelect.classList.remove('hidden'))
+            })
+
+        })();
+    </script>
+</body>
+
+</html>
