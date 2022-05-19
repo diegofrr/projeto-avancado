@@ -1,0 +1,40 @@
+.botao-enviar {
+    background: linear-gradient(-45deg, cornflowerblue 60%, rgb(157, 187, 241), cornflowerblue 90%);
+    background-size: 400px;
+    background-position: -200px;
+    height: 40px;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    transition: all .3s ease;
+    cursor: pointer;
+    font-weight: 800;
+    width: 100%;
+}
+
+.botao-enviar:hover{
+    background-position: 200px;
+}
+
+.botao-cancelar {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    transition: all .3s ease;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 8px;
+    padding: 0 20px;
+    width: 50%;
+    font-weight: 800;
+}
+
+.botao-cancelar:hover {
+    background-color: red;
+    color: white;
+}
+
+.botao-enviar:active,
+.botao-cancelar:active {
+    transform: scale(.95);
+}
