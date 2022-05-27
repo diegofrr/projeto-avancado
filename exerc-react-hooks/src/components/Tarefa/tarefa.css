@@ -1,0 +1,35 @@
+.finalizada {
+    background-color: rgba(255, 0, 0, 0.158) !important;
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.tarefa-default {
+    background-color: rgba(0, 0, 0, .03);
+    padding: 2px 90px 2px 10px;
+    border-radius: 6px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.remove-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+}
+
+.remove-icon > *:hover {
+    opacity: 1;
+}
+
+.remove-icon > * {
+    width: 20px;
+    height: 20px;
+    fill: #123456;
+    opacity: .5;
+    background-color: transparent !important;
+}
