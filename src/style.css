@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,800;1,200;1,300;1,400;1,600;1,800&display=swap');
+
+:root {
+    --bg-color: #282c35;
+    --sec-color: #1a1d24;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    background-color: var(--bg-color);
+    display: grid;
+    place-content: center;
+    padding: 0 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #cbd1e0;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: normal;
+    font-weight: 600;
+    border-bottom: 1px solid #404452;
+    width: 100%;
+    text-align: left;
+}
+
+.container {
+    border: 1px solid rgba(255, 255, 255, .05);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #555d7025;
+    max-width: 400px;
+    margin: 40px 0;
+}
+
+.tarefas-block {
+    background-color: var(--sec-color);
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+}
+
+.tarefas-block ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tarefas-block ul li {
+    color: white;
+    list-style: none;
+    position: relative;
+    padding-left: 15px;
+    word-wrap: break-word;
+}
+
+.tarefas-block ul li::after {
+    position: absolute;
+    left: 0;
+    content: '';
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: cornflowerblue;
+    border-radius: 20px;
+    top: 0;
+}
+
+/* input style */
+
+.input-block {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    border: none;
+    height: 30px;
+    border-radius: 6px;
+    padding: 10px;
+    background-color: var(--sec-color);
+    color: white;
+}
+
+input:focus {
+    outline: 2px solid cornflowerblue;
+}
+
+input ~ label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #555d70;
+    font-size: .8em;
+    pointer-events: none;
+    transition: all .3s ease-in-out;
+}
+
+input:focus ~ label {
+    color: cornflowerblue;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 0;
+    font-size: .7em;
+    padding: 0 4px;
+    font-weight: 600;
+}
+
+/* Buttons style */
+.botoes-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+.default-btn {
+    background-color: cornflowerblue;
+    border: 2px solid cornflowerblue;
+    color: white;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.default-btn:hover {
+    background-color: rgb(124, 165, 241);
+    border-color: rgb(124, 165, 241);
+}
+
+.default-btn:focus {
+    outline: none;
+    border: 2px solid white;
+}
+
+.default-btn:active {
+    background-color: rgb(76, 121, 204);
+    border-color: rgb(76, 121, 204);
+}
+
+.clean-btn {
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(202, 84, 84);
+    border-radius: 20px;
+    padding: 0 5px;
+    font-size: .7em;
+}
+
+.hidden {
+    display: none;
+}
+
+.clean-btn:hover {
+    color: red;
+}
+
+.clean-btn:focus {
+    outline: none;
+    color: red;
+}
+
+._flex-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+._flex-r {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+strong {
+    color: #6f7588;
+    font-weight: normal;
+    font-size: .7em;
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 300px){
+    .container {
+        min-width: 300px;
+    }
+}
